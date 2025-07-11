@@ -1,5 +1,7 @@
 import { Home, Compass, Bookmark, User, Settings } from "lucide-react";
 import Menu from "@/components/navigation/menu";
+import CardRecommendation from "@/components/card/card-recomendation";
+import ijenImage from "@/assets/ijen.jpg";
 
 function AppLayout() {
   return (
@@ -9,7 +11,13 @@ function AppLayout() {
       </header>
 
       <main className="app-content flex-1 p-4">
-        {/* Isi halaman akan dirender di sini */}
+        <CardRecommendation
+          title="Kawah Ijen"
+          location="Banyuwangi"
+          rating={4.8}
+          imageUrl={ijenImage}
+          onClick={() => alert("Kawah Ijen dipilih")}
+        />
       </main>
 
       <Menu
