@@ -71,7 +71,7 @@ const destinations = [
     image: cikaso,
     rating: 4.8,
   },
-  
+
   {
     id: "7",
     title: "Pandawa",
@@ -111,7 +111,8 @@ const destinations = [
     category: "Edukasi",
     image: tmii,
     rating: 4.9,
-  },{
+  },
+  {
     id: "6",
     title: "Mandakaripura",
     location: "Probolinggo",
@@ -154,7 +155,7 @@ function AppLayout() {
             className="w-full overflow-x-auto pl-1"
           >
             <CarouselContent className="w-[550px]">
-              {destinations.slice(0, 5).map((item) => (
+              {destinations.slice(0, 12).map((item) => (
                 <CarouselItem
                   key={item.id}
                   className="pt-1 basis-1/2 max-h-[300px]"
@@ -173,7 +174,13 @@ function AppLayout() {
         </div>
         <section className="px-6 py-2">
           <h2 className="text-lg font-semibold pb-2">What's popular</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 ">
+          <div
+            className="sm:grid sm:grid-cols-3 sm:gap-2"
+            style={{
+              columnCount: 2,
+              columnGap: "0.5rem",
+            }}
+          >
             {destinations.slice(0, 12).map((item) => (
               <PopularCard
                 key={item.id}

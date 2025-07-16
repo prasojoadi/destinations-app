@@ -10,6 +10,7 @@ type CardRecommendationProps = {
   description?: string;
   imageUrl: string;
   onClick?: () => void;
+  className?: string;
 };
 
 const CardRecommendation: React.FC<CardRecommendationProps> = ({
@@ -46,7 +47,7 @@ const CardRecommendation: React.FC<CardRecommendationProps> = ({
       </div>
 
       <div className="grid gap-1 p-3">
-        <h1 className="text-md font-semibold">{title}</h1>
+        <h1 className="text-base font-semibold">{title}</h1>
 
         <div className="flex items-center gap-1 text-sm text-muted-foreground">
           <MapPin size={12} className="text-primary" />
