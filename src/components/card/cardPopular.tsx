@@ -6,15 +6,30 @@ interface PopularCardProps {
   title: string;
   imageUrl: string;
   location: string;
+  onClick?: () => void;
 }
 
 const PopularCard: React.FC<PopularCardProps> = ({
   title,
   imageUrl,
   location,
+  onClick,
 }) => {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    const timeout = setTimeout(() => setIsVisible(true), 50);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
-    <Card className="p-0 mb-2 relative overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-lg transition-shadow">
+    <Card
+      onClick={onClick}
+      className={`p-0 mb-2 md:gap-4 relative overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-lg transition-all duration-500 ease-out 
+        0${onClick ? "cursor-pointer" : "cursor-default"}
+        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
+        hover:scale-105 hover:shadow-md`}
+    >
       <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
       <div className="absolute top-2 right-2 p-1 rounded-full shadow-sm bg-secondary">
         <Heart className="w-4 h-4 text-destructive" />

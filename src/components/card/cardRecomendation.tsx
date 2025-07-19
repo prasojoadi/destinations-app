@@ -20,20 +20,11 @@ const CardRecommendation: React.FC<CardRecommendationProps> = ({
   imageUrl,
   onClick,
 }) => {
-  const [isVisible, setIsVisible] = React.useState(false);
-
-  React.useEffect(() => {
-    const timeout = setTimeout(() => setIsVisible(true), 50);
-    return () => clearTimeout(timeout);
-  }, []);
 
   return (
     <Card
       onClick={onClick}
-      className={`p-0 gap-0 ml-4 min-w-[150px] rounded-xl border transition-all duration-500 ease-out
-        ${onClick ? "cursor-pointer" : "cursor-default"}
-        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
-        hover:scale-105 hover:shadow-md`}
+      className="p-0 gap-0 ml-4 min-w-[150px] rounded-xl border "
     >
       <div className="relative">
         <img
