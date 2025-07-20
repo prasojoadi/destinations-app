@@ -1,11 +1,4 @@
-import {
-  Home,
-  Compass,
-  Bookmark,
-  TicketPercent,
-  Settings,
-  Search,
-} from "lucide-react";
+import { Search } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import {
@@ -13,17 +6,17 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Menu from "@/components/navigation/menu";
-import CardRecommendation from "@/components/card/cardRecomendation";
-import PopularCard from "@/components/card/cardPopular";
+import CardRecommendation from "@/components/destination/cardDestination";
+import PopularCard from "@/components/destination/cardPopular";
 import { destinations } from "@/lib/data/data";
 import { useNavigate } from "react-router-dom";
+import AppLayout from "@/layouts/appLayout";
 
 function HomePage() {
   const navigate = useNavigate();
   return (
     <>
-      <main className="pb-20">
+      <AppLayout>
         <div className="px-6 py-4">
           <h1 className="text-2xl font-bold">Lest Go !!</h1>
           <h2 className="text-md font-semibold text-secondary-foreground mb-2">
@@ -43,7 +36,7 @@ function HomePage() {
           <Carousel
             opts={{ align: "start" }}
             orientation="horizontal"
-            className="w-full overflow-x-auto pl-1"
+            className="w-full overflow-x-auto pl-6"
           >
             <CarouselContent className="w-[550px]">
               {destinations.slice(0, 12).map((item) => (
@@ -83,17 +76,7 @@ function HomePage() {
             ))}
           </div>
         </section>
-      </main>
-
-      <Menu
-        items={[
-          { label: "Home", icon: Home, to: "/" },
-          { label: "Bookmark", icon: Bookmark, to: "/bookmark" },
-          { label: "Explore", icon: Compass, to: "/explore" },
-          { label: "Booking", icon: TicketPercent, to: "/booking" },
-          { label: "Setting", icon: Settings, to: "/settings" },
-        ]}
-      />
+      </AppLayout>
     </>
   );
 }

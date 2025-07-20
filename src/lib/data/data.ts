@@ -12,6 +12,18 @@ import saloka from "@/assets/img/saloka.jpeg";
 import tmii from "@/assets/img/tmii.jpg";
 import tumpaksewu from "@/assets/img/tumpaksewu.jpg";
 
+export type Destination = {
+  title: string;
+  id: string;
+  location: string;
+  rating?: number;
+  category?: string;
+  description?: string;
+  imageUrl: string;
+  onClick: () => void;
+  className?: string;
+};
+
 export const destinations = [
   {
     id: "1",
